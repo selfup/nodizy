@@ -8,7 +8,8 @@ const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 const atom = require('./atom.js')
 const necleus = require('./nucleus.js')
-const h = require('./lifeBlock.js')
+const lifeBlock = require('./lifeBlock.js')
+const createLife = require('./createLife.js')
 
 const server = http.createServer(app)
   .listen(port, () => {
