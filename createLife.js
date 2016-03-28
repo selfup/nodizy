@@ -1,9 +1,9 @@
 'use strict'
 
 class CreateLife {
-  constructor(limit, lifeBlock) {
+  
+  constructor(limit) {
     this.limit = limit
-    this.lifeBlock = lifeBlock
     this.universe = []
   }
 
@@ -12,25 +12,28 @@ class CreateLife {
 }
 
   get initializeLife() {
-    for (let i = 0; i <= limit; i++) {
-      for (let k = 0; k <= limit; i++) {
-        for (let v = 0; v <= limit; i++) {
-        universe.push({
-            x: this.lifeBlock.x = i,
-            y: this.lifeBlock.y = k,
-            z: this.lifeBlock.z = v,
-            atom: {
-              electrons: this.lifeBlock.atom.electrons = this.rInt,
-              nucleus: this.lifeBlock.atom.nucleus = {
-                protons: this.lifeBlock.atom.nucleus.protons = this.rInt,
-                neutrons: this.lifeBlock.atom.nucleus.neutrons = this.rInt
-              },
+    for (let i = 0; i < this.limit + 1; i++) {
+      for (let k = 0; k < this.limit + 1; k++) {
+        for (let v = 0; v < this.limit + 1; v++) {
+          this.universe.push(
+            {
+              x: i,
+              y: k,
+              z: v,
+              atom: {
+                electrons: this.rInt,
+                nucleus: {
+                  protons: this.rInt,
+                  neutrons: this.rInt
+                },
+              }
             }
-          })
+          )
         }
       }
     }
   }
+
 }
 
 module.exports = CreateLife

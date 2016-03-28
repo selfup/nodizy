@@ -2,10 +2,9 @@
 
 class LifeBlock {
   constructor(x, y, z, atom) {
-    this.x = x
-    this.y = y
-    this.z = z
-    this.atom = atom
+    this.x = x || 0
+    this.y = y || 0
+    this.z = z || 0
   }
 }
 

@@ -26,4 +26,8 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
+var cL = new createLife(1)
+console.log(cL.initializeLife)
+console.log(cL.universe)
+
 module.exports = app
