@@ -6,9 +6,6 @@ const _ = require('lodash')
 const app = express()
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
-const atom = require('./atom.js')
-const necleus = require('./nucleus.js')
-const lifeBlock = require('./lifeBlock.js')
 const createLife = require('./createLife.js')
 
 const server = http.createServer(app)
@@ -26,8 +23,8 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
-var cL = new createLife(1)
+var cL = new createLife(100)
 console.log(cL.initializeLife)
-console.log(cL.universe)
+console.log(cL.universe.length)
 
 module.exports = app
