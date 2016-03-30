@@ -1,3 +1,5 @@
+'use strict'
+
 const ejs = require('ejs')
 const http = require('http')
 const express = require('express')
@@ -23,8 +25,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
-var cL = new createLife(100)
-console.log(cL.initializeLife)
-console.log(cL.universe.length)
+app.get('/universe', (req, res) => {
+  let cL = new createLife(12)
+  cL.initializeLife
+  res.render('universe', { universe: cL.universe.length})
+})
 
 module.exports = app
