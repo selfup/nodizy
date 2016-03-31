@@ -27,4 +27,14 @@ app.get('/', (req, res) => {
   res.render('universe', { universe: cL.universe.length})
 })
 
+io.sockets.on('connection', (socket) => {
+  socket.on('message', function (channel, message) {
+    if (channel === 'universeCall') {
+      let cL = new createLife(12)
+      cL.initializeLife
+      io.sockets.emit('sendNewUniverse', cL.universe)
+    }
+  })
+})
+
 module.exports = app
