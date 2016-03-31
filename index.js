@@ -22,10 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html')
-})
-
-app.get('/universe', (req, res) => {
   let cL = new createLife(12)
   cL.initializeLife
   res.render('universe', { universe: cL.universe.length})
