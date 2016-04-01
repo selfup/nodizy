@@ -32,7 +32,7 @@ io.sockets.on('connection', (socket) => {
     if (channel === 'universeCall') {
       let cL = new createLife(12)
       cL.initializeLife
-      io.sockets.emit('sendNewUniverse', cL.universe)
+      io.sockets.emit('sendNewUniverse', cL)
     }
   })
 })
