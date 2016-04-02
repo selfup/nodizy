@@ -2,6 +2,7 @@
 const socket = io()
 const universeCall = document.getElementById('universeCall')
 const sendNewUniverse = document.getElementById('sendNewUniverse')
+const stopViz = document.getElementById('stopViz')
 
 socket.on("sendNewUniverse", function (message) {
   appendUniverseProps(message.universe)
@@ -30,4 +31,8 @@ const appendUniverseProps = (message) => {
 
 $('#newUniverse').on('click', function() {
   socket.send('universeCall')
+})
+
+$('#stopViz').on('click', function() {
+  socket.send('stopViz')
 })

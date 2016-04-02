@@ -27,12 +27,31 @@ app.get('/', (req, res) => {
   res.render('universe', { universe: cL.universe.length})
 })
 
+
 io.sockets.on('connection', (socket) => {
+
+  let status = ""
+
   socket.on('message', function (channel, message) {
+    let makeNewUniverses = () => {
+      setTimeout(function () {
+        let cL = new createLife(1)
+        cL.initializeLife
+        io.sockets.emit('sendNewUniverse', cL)
+        if (status === "go") {
+          makeNewUniverses()
+        } else {
+          return io.sockets.emit('sendNewUniverse', cL)
+        }
+      }, 1000)
+    }
+
     if (channel === 'universeCall') {
-      let cL = new createLife(1)
-      cL.initializeLife
-      io.sockets.emit('sendNewUniverse', cL)
+      status = "go"
+      makeNewUniverses()
+    }
+    if (channel === 'stopViz') {
+      status = "stop"
     }
   })
 })
