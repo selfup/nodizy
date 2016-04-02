@@ -41,7 +41,7 @@ io.sockets.on('connection', (socket) => {
         if (status === "go") {
           makeNewUniverses()
         } else {
-          return io.sockets.emit('sendNewUniverse', cL)
+          return io.socket.emit('sendNewUniverse', cL)
         }
       }, 1000)
     }
