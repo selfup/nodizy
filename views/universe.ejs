@@ -12,12 +12,38 @@
     <div class='jumbotron text-center'>
     <h1>Welcome to REJS</h1>
     <br>
-    <br>
-    <%= universe %>
-    <br>
+    <h3> Amount of atoms: <%= universe %> </h3>
     <br>
     <button id="newUniverse" class="btn btn-primary">Retreive</button>
-    <h1 id="electrons"></h1>
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          Atom #:
+        </div>
+        <div class="col-sm-3">
+          Electrons
+        </div>
+        <div class="col-sm-3">
+          Protons
+        </div>
+        <div class="col-sm-3">
+          Neutrons
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3" id="atoms">
+        </div>
+        <div class="col-sm-3" id="electrons">
+        </div>
+        <div class="col-sm-3" id="protons">
+        </div>
+        <div class="col-sm-3" id="neutrons">
+        </div>
+      </div>
+    </div>
   </div>
     <script src="/jquery.js"></script>
     <script src="/socket.io/socket.io.js"></script>
