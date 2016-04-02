@@ -1,7 +1,7 @@
 {
-  "name": "Crowdsource",
+  "name": "REJS",
   "version": "1.0.0",
-  "description": "Crowdsource voting app. Live for everyone or live for the admin.",
+  "description": "Universe creation",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/nodemon/bin/nodemon.js index.js",
