@@ -24,7 +24,7 @@ const populateProps = (i, message) => {
 
 const appendUniverseProps = (message) => {
   emptyProps()
-  for(let i = 0; i < message.length; i++) {
+  for (let i = 0; i < message.length; i++) {
     populateProps(i, message)
   }
 }
