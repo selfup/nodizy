@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  let cL = new createLife(12)
+  let cL = new createLife(1)
   cL.initializeLife
   res.render('universe', { universe: cL.universe.length})
 })
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 io.sockets.on('connection', (socket) => {
   socket.on('message', function (channel, message) {
     if (channel === 'universeCall') {
-      let cL = new createLife(12)
+      let cL = new createLife(1)
       cL.initializeLife
       io.sockets.emit('sendNewUniverse', cL)
     }
