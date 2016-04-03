@@ -1,8 +1,6 @@
 'use strict'
+
 const socket = io()
-const universeCall = document.getElementById('universeCall')
-const sendNewUniverse = document.getElementById('sendNewUniverse')
-const stopViz = document.getElementById('stopViz')
 
 socket.on("sendNewUniverse", message => {
   appendUniverseProps(message.universe)
@@ -33,10 +31,10 @@ const populateProps = (i, message) => {
   $(atomId).append(`<h6>${message[i].atom.atomId}</h6>`)
 }
 
-$('#newUniverse').on('click', () => {
+$(newUniverse).on('click', () => {
   socket.send('universeCall')
 })
 
-$('#stopViz').on('click', () => {
+$(stopViz).on('click', () => {
   socket.send('stopViz')
 })
