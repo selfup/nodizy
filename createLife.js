@@ -9,7 +9,7 @@ class CreateLife {
 
   get rInt() {
     return Math.floor(Math.random() * (118 - 0 + 1)) + 0
-}
+  }
 
   get initializeLife() {
     for (let i = 0; i < this.limit + 1; i++) {
