@@ -23,7 +23,6 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
   let cL = new createLife(1)
-  cL.initializeLife
   res.render('universe', { universe: cL.universe.length})
 })
 
@@ -54,5 +53,7 @@ io.sockets.on('connection', socket => {
 
   })
 })
+
+console.log(new createLife(1));
 
 module.exports = app
