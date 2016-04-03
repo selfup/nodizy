@@ -1,5 +1,7 @@
 'use strict'
 
+const _ = require('lodash')
+
 class CreateLife {
 
   constructor(limit) {
@@ -34,8 +36,23 @@ class CreateLife {
     }
   }
 
-  get determineChargeOfAtoms() {
+  get setAtomId() {
+    _.map(this.universe, (lifeBlock) => {
+      lifeBlock.atom['atomId'] = Math.random().toString(36).substring(7)
+    })
+  }
 
+  get determineChargeOfAtoms() {
+    this.setAtomId
+    _.map(this.universe, (lifeBlock) => {
+      if (lifeBlock.atom.nucleus.protons === lifeBlock.atom.electrons) {
+        lifeBlock['charge'] = 0
+      } else if (lifeBlock.atom.nucleus.protons > lifeBlock.atom.electrons) {
+        lifeBlock['charge'] = 1
+      } else {
+        lifeBlock['charge'] = -1
+      }
+    })
   }
 
 }

@@ -38,6 +38,7 @@ io.sockets.on('connection', socket => {
         if (status === "go") {
           let cL = new createLife(1)
           cL.initializeLife
+          cL.determineChargeOfAtoms
           io.to(socket.id).emit('sendNewUniverse', cL);
           makeNewUniverses()
         }
