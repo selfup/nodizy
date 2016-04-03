@@ -7,6 +7,9 @@ class CreateLife {
   constructor(limit) {
     this.limit = limit
     this.universe = []
+    this.initializeLife
+    this.setAtomId
+    this.determineChargeOfAtoms
   }
 
   get rInt() {
@@ -43,7 +46,6 @@ class CreateLife {
   }
 
   get determineChargeOfAtoms() {
-    this.setAtomId
     _.map(this.universe, (lifeBlock) => {
       if (lifeBlock.atom.nucleus.protons === lifeBlock.atom.electrons) {
         lifeBlock['charge'] = 0
