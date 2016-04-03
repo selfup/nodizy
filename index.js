@@ -22,8 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  let cL = new createLife(1)
-  res.render('universe', { universe: cL.universe.length})
+  res.render('universe')
 })
 
 
@@ -53,7 +52,5 @@ io.sockets.on('connection', socket => {
 
   })
 })
-
-console.log(new createLife(1));
 
 module.exports = app
