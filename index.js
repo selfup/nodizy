@@ -28,21 +28,18 @@ app.get('/', (req, res) => {
 })
 
 
-io.sockets.on('connection', (socket) => {
+io.sockets.on('connection', socket => {
 
   let status = ""
 
-  socket.on('message', function (channel, message) {
+  socket.on('message', (channel, message) => {
     let makeNewUniverses = () => {
-      setTimeout(function () {
-        let cL = new createLife(1)
-        cL.initializeLife
-        io.to(socket.id).emit('sendNewUniverse', cL);
+      setTimeout(() => {
         if (status === "go") {
-          console.log('GOING');
+          let cL = new createLife(1)
+          cL.initializeLife
+          io.to(socket.id).emit('sendNewUniverse', cL);
           makeNewUniverses()
-        } else {
-          return
         }
       }, 1000)
     }
@@ -51,9 +48,11 @@ io.sockets.on('connection', (socket) => {
       status = "go"
       makeNewUniverses()
     }
+
     if (channel === 'stopViz') {
       status = "stop"
     }
+
   })
 })
 

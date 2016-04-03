@@ -1,7 +1,7 @@
 'use strict'
 
 class CreateLife {
-  
+
   constructor(limit) {
     this.limit = limit
     this.universe = []
@@ -32,6 +32,10 @@ class CreateLife {
         }
       }
     }
+  }
+
+  get determineChargeOfAtoms() {
+
   }
 
 }

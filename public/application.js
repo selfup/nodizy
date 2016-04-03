@@ -4,9 +4,16 @@ const universeCall = document.getElementById('universeCall')
 const sendNewUniverse = document.getElementById('sendNewUniverse')
 const stopViz = document.getElementById('stopViz')
 
-socket.on("sendNewUniverse", function (message) {
+socket.on("sendNewUniverse", message => {
   appendUniverseProps(message.universe)
 })
+
+const appendUniverseProps = message => {
+  emptyProps()
+  for (let i = 0; i < message.length; i++) {
+    populateProps(i, message)
+  }
+}
 
 const emptyProps = () => {
   $(electrons).empty()
@@ -22,17 +29,10 @@ const populateProps = (i, message) => {
   $(protons).append(`<h6>${message[i].atom.nucleus.protons}</h6>`)
 }
 
-const appendUniverseProps = (message) => {
-  emptyProps()
-  for (let i = 0; i < message.length; i++) {
-    populateProps(i, message)
-  }
-}
-
-$('#newUniverse').on('click', function() {
+$('#newUniverse').on('click', () => {
   socket.send('universeCall')
 })
 
-$('#stopViz').on('click', function() {
+$('#stopViz').on('click', () => {
   socket.send('stopViz')
 })
