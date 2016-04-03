@@ -37,12 +37,12 @@ io.sockets.on('connection', (socket) => {
       setTimeout(function () {
         let cL = new createLife(1)
         cL.initializeLife
-        io.sockets.emit('sendNewUniverse', cL)
+        io.to(socket.id).emit('sendNewUniverse', cL);
         if (status === "go") {
           console.log('GOING');
           makeNewUniverses()
         } else {
-          return io.sockets.emit('sendNewUniverse', cL)
+          return
         }
       }, 1000)
     }
