@@ -1,7 +1,6 @@
-#### Crowdsource!
+#### REJS!
 
-Real time polling app built using Express, Node, and Socket.io. Production link is [here](https://warm-anchorage-1924.herokuapp.com/). Original spec from Turing School found [here](https://github.com/turingschool/curriculum/blob/master/source/projects/real_time.markdown).
-
+Port of [oxidizy_up](https://github.com/selfup/oxidizy_up) from rust to node!
 
 ### To Install
 1. Clone the repo
