@@ -7,7 +7,6 @@ const socketIo = require('socket.io')
 const _ = require('lodash')
 const app = express()
 const port = process.env.PORT || 3000
-const bodyParser = require('body-parser')
 const createLife = require('./createLife.js')
 
 const server = http.createServer(app)
@@ -18,7 +17,6 @@ const server = http.createServer(app)
 const io = socketIo(server)
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
