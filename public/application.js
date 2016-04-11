@@ -2,6 +2,10 @@
 
 const socket = io()
 
+socket.on("universeCallData", message => {
+  appendLogData(message)
+})
+
 socket.on("sendNewUniverse", message => {
   appendUniverseProps(message.universe)
 })
@@ -11,6 +15,11 @@ const appendUniverseProps = message => {
   for (let i = 0; i < message.length; i++) {
     populateProps(i, message)
   }
+}
+
+const appendLogData = message => {
+  $(universeStuff).empty()
+  $(universeStuff).append(`<h6>${message['1']['universe']}</h6>`)
 }
 
 const emptyProps = () => {
